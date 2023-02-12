@@ -18,7 +18,7 @@ int main()
 	
 	//удаление студента
 	//st.deleteStudent("text.txt");
-	 
+
 	st.toString();
 	return 0;
 }
