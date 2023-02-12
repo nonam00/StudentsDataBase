@@ -11,7 +11,10 @@ int main()
 	st.toString();
 
 	// добавление данных о новом студенте в файл
-	st.saveStudent("text.txt");
+	//st.saveStudent("text.txt");
 
+	//st.addAge("text.txt");
+	st.deleteStudent("text.txt");
+	st.toString();
 	return 0;
 }

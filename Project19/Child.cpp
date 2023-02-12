@@ -1,5 +1,13 @@
 #include "Child.h"
 
+//очистка файла
+void clear(std::string path_file)
+{
+	std::ofstream del_file(path_file);
+	del_file << "";
+	del_file.close();
+}
+
 //конструктор
 Child::Child(std::string path_file)
 {
@@ -46,7 +54,7 @@ void Child::toString()
 }
 
 // добавление данных о новом студенте в файл
-// изменённая информация будет добавлена в вектор при повторном запуске программы
+
 void Child::saveStudent(std::string path_file)
 {
 	//имя нового студента
@@ -64,13 +72,67 @@ void Child::saveStudent(std::string path_file)
 	//запись данных в файл
 	file << "\n" << new_name << " " << new_age;
 
+	//добавление данных в вектор
+	students.push_back(Student(new_name, new_age));
+
 	//закрытие файла
 	file.close();
 }
 
-// функция прибавления числа к возрасту
-// не завершена
-void Child::addAge(int number, int year)
+void Child::deleteStudent(std::string path_file)
 {
+	//имя студента для удаления
+	std::string to_del;
+	std::cin >> to_del; std::cout << std::endl;
 
+	//очистка файла
+	clear(path_file);
+
+	//открытие потока на запись
+	std::ofstream file(path_file, std::ios_base::app);
+
+	//счётчик для удаления элемента вектора по итератору
+	int i = 0;
+
+	//запись в файл
+	for (auto item : students)
+	{
+		//проверка на нужного студента
+		if (item.Name(to_del))
+		{
+			//удаление студента
+			students.erase(std::next(students.begin() + i -1));
+			continue;
+		}
+		//перезапись студентов в файл
+		file << "\n" << item.Name() << " " << item.Age();
+		i++;
+	}
+	file.close();
+}
+
+// функция прибавления 2 к возрасту
+void Child::addAge(std::string path_file)
+{
+	//имя студента для редактирования
+	std::string to_edit;
+	std::cin >> to_edit; std::cout << std::endl;
+
+	//очистка файла
+	clear(path_file);
+
+	//открытие потока на запись
+	std::ofstream file(path_file, std::ios_base::app);
+
+	//запись в файл
+	for (auto item : students)
+	{
+		//проверка на нужного студента
+		if (item.Name(to_edit))
+			//изменение значения возраста
+			item.Age(item.Age() + 2);
+		//перезапись студентов в файл
+		file << "\n" << item.Name() << " " << item.Age();
+	}
+	file.close();
 }

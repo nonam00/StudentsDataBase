@@ -23,6 +23,13 @@ struct Student
 	
 	//геттер возраста
 	int Age() { return age; }
+
+	//сеттер возраста
+	void Age(int _age) { age = _age; }
+
+	//стравнение имён
+	bool Name(std::string _name) { return (name == _name); }
+
 };
 
 class Parent

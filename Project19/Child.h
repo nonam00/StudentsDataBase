@@ -19,8 +19,11 @@ public:
 	// добавление данных о новом студенте в файл
 	void saveStudent(std::string path_file);
 
+	//удаление данных о студенте
+	void deleteStudent(std::string path_file);
+
 	// функция прибавления числа к возрасту
-	void addAge(int number, int year);
+	void addAge(std::string path_file);
 
 };
 
