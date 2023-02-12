@@ -12,9 +12,13 @@ int main()
 
 	// добавление данных о новом студенте в файл
 	//st.saveStudent("text.txt");
-
+	
+	//+2 к возрасту выбранного студента
 	//st.addAge("text.txt");
-	st.deleteStudent("text.txt");
+	
+	//удаление студента
+	//st.deleteStudent("text.txt");
+	 
 	st.toString();
 	return 0;
 }

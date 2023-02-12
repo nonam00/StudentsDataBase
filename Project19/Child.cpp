@@ -42,10 +42,7 @@ Child::Child(std::string path_file)
 }
 
 //деструктор
-Child::~Child()
-{
-
-}
+Child::~Child() {}
 
 // вывод / печать
 void Child::toString()
@@ -54,7 +51,6 @@ void Child::toString()
 }
 
 // добавление данных о новом студенте в файл
-
 void Child::saveStudent(std::string path_file)
 {
 	//имя нового студента
